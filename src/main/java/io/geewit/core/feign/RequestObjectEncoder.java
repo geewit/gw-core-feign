@@ -4,7 +4,7 @@ import feign.RequestTemplate;
 import feign.codec.EncodeException;
 import feign.codec.Encoder;
 import io.geewit.core.feign.request.RequestObject;
-import io.geewit.core.utils.lang.reflection.Reflections;
+import io.geewit.core.utils.reflection.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ReflectionUtils;
