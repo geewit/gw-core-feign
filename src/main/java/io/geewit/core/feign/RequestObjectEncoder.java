@@ -12,6 +12,7 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 
+
 /**
  * Provides support for encoding RequestObject via composition.
  * @author geewit
@@ -29,11 +30,11 @@ public class RequestObjectEncoder implements Encoder {
     public void encode(Object object, Type bodyType, RequestTemplate template) throws EncodeException {
         if (supports(object)) {
             Field[] fields = Reflections.getPublicGetters(object.getClass());
-            for(Field field : fields) {
+            for (Field field : fields) {
                 String fieldName = field.getName();
                 Object fieldValue = ReflectionUtils.getField(field, object);
                 logger.debug("field.name = {}, field.value = {}", fieldName, fieldValue);
-                if(fieldValue != null) {
+                if (fieldValue != null) {
                     template.query(fieldName, String.valueOf(fieldValue));
                 }
             }
